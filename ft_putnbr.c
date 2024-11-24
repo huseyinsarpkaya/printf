@@ -5,25 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: husarpka <husarpka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 17:23:44 by husarpka          #+#    #+#             */
-/*   Updated: 2024/11/22 17:27:54 by husarpka         ###   ########.fr       */
+/*   Created: 2024/11/24 17:20:15 by husarpka          #+#    #+#             */
+/*   Updated: 2024/11/24 17:33:33 by husarpka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include <unistd.h>
 
 int	ft_putnbr(int nbr)
 {
 	int	len;
+	long n = (long)nbr;
 
 	len = 0;
-	if (nbr == -2147483648)
-	{
-		if (write (1, "-2147483648", 11) == -1)
-			return (-1);
-		return (11);
-	}
-	if (nbr < 0)
+	
+	if (n < 0)
 	{
 		ft_putchar('-');
 		nbr = -nbr;
