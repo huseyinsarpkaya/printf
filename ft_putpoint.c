@@ -6,7 +6,7 @@
 /*   By: husarpka <husarpka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 13:06:57 by husarpka          #+#    #+#             */
-/*   Updated: 2024/11/24 16:36:44 by husarpka         ###   ########.fr       */
+/*   Updated: 2024/11/25 12:42:18 by husarpka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ static int	ft_hexpoint(unsigned long int n, char c)
 int	ft_putpoint(unsigned long n)
 {
 	int	len;
-	
+
+	len = 0;
 	if (n == 0)
 	{
 		if (write(1, "(nil)", 5) == -1)

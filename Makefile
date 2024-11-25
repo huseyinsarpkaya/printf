@@ -2,13 +2,16 @@ NAME = libftprintf.a
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fPIC 
 
-SRC =		ft_hex.c\
-			ft_putnbr.c\
-			ft_putpoint.c\
-			ft_str.c\
-			ft_unputnbr.c\
+AR = ar rcs
+
+SRC =	ft_hex.c\
+		ft_putnbr.c\
+		ft_putpoint.c\
+		ft_str.c\
+		ft_uputnbr.c\
+		ft_printf.c\
 
 
 OBJ = $(SRC:.c=.o)
@@ -16,16 +19,15 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+	$(AR) $(NAME) $?
 
 clean:
-	rm -rf $(OBJ)
+	rm -f $(OBJ)
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -f $(NAME)
 
-re: fclean $(NAME)
+re: fclean all
 
 .PHONY: all clean fclean re
-
 

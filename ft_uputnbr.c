@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str.c                                           :+:      :+:    :+:   */
+/*   ft_uputnbr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: husarpka <husarpka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 15:54:26 by husarpka          #+#    #+#             */
-/*   Updated: 2024/11/25 18:02:02 by husarpka         ###   ########.fr       */
+/*   Created: 2024/11/20 10:39:32 by husarpka          #+#    #+#             */
+/*   Updated: 2024/11/25 17:49:18 by husarpka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "ft_printf.h"
 
-int	ft_putchar(int c)
+int	ft_uputnbr(unsigned int nbr)
 {
-	return (write (1, &c, 1));
-}
+	int	len;
 
-int	ft_putstr(char *str)
-{
-	int	i;
-
-	i = 0;
-	if (!str)
+	len = 0;
+	if (nbr > 9)
 	{
-		if (write(1,"(null)",6) == -1)
-			return (-1);
-		return (6);
+		len += ft_uputnbr(nbr / 10);
 	}
-	while (str[i])
-		i++;
-	if (write (1, str, i) == -1)
-		return (-1);
-	return (i);
+	ft_putchar((nbr % 10) + 48);
+	len++;
+	return (len);
 }
+
+
+

@@ -6,11 +6,10 @@
 /*   By: husarpka <husarpka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 16:55:08 by husarpka          #+#    #+#             */
-/*   Updated: 2024/11/23 16:12:23 by husarpka         ###   ########.fr       */
+/*   Updated: 2024/11/25 10:57:00 by husarpka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
 #include <unistd.h>
 
 int	ft_hex(unsigned int n, char c)
