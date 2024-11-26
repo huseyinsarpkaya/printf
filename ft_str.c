@@ -6,7 +6,7 @@
 /*   By: husarpka <husarpka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:54:26 by husarpka          #+#    #+#             */
-/*   Updated: 2024/11/25 18:02:02 by husarpka         ###   ########.fr       */
+/*   Updated: 2024/11/26 18:23:21 by husarpka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_putstr(char *str)
 	i = 0;
 	if (!str)
 	{
-		if (write(1,"(null)",6) == -1)
+		if (write (1, "(null)", 6) == -1)
 			return (-1);
 		return (6);
 	}

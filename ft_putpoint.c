@@ -6,13 +6,13 @@
 /*   By: husarpka <husarpka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 13:06:57 by husarpka          #+#    #+#             */
-/*   Updated: 2024/11/25 12:42:18 by husarpka         ###   ########.fr       */
+/*   Updated: 2024/11/26 18:22:54 by husarpka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-static int	ft_hexpoint(unsigned long int n, char c)
+static int	ft_hexpoint(unsigned long n, char c)
 {
 	int	len;
 	int	result;
@@ -39,12 +39,14 @@ static int	ft_hexpoint(unsigned long int n, char c)
 	return (len);
 }
 
-int	ft_putpoint(unsigned long n)
+int	ft_putpoint(void *n)
 {
-	int	len;
+	unsigned long	nbr;
+	int				len;
 
+	nbr = (unsigned long)n;
 	len = 0;
-	if (n == 0)
+	if (nbr == 0)
 	{
 		if (write(1, "(nil)", 5) == -1)
 			return (-1);
@@ -53,6 +55,6 @@ int	ft_putpoint(unsigned long n)
 	if (write(1, "0x", 2) == -1)
 		return (-1);
 	len = 2;
-	len += ft_hexpoint(n, 'x');
+	len += ft_hexpoint(nbr, 'x');
 	return (len);
 }

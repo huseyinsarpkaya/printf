@@ -6,16 +6,15 @@
 /*   By: husarpka <husarpka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 10:49:19 by husarpka          #+#    #+#             */
-/*   Updated: 2024/11/25 18:02:58 by husarpka         ###   ########.fr       */
+/*   Updated: 2024/11/26 18:20:45 by husarpka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdarg.h>
 
-
 int	ft_symbol(va_list args, char a)
-{
+{	
 	if (a == 'c')
 		return (ft_putchar(va_arg(args, int)));
 	else if (a == 'd' || a == 'i')
@@ -27,9 +26,9 @@ int	ft_symbol(va_list args, char a)
 	else if (a == 'u')
 		return (ft_uputnbr(va_arg(args, unsigned int)));
 	else if (a == 'p')
-		return (ft_putpoint(va_arg(args, unsigned long)));
+		return (ft_putpoint(va_arg(args, void *)));
 	else if (a == '%')
-		return(ft_putchar('%'));
+		return (ft_putchar('%'));
 	return (-1);
 }
 
@@ -37,7 +36,9 @@ int	ft_printf(const char *format, ...)
 {
 	va_list	args;
 	int		len;
+	int		res;
 
+	res = 0;
 	if (!format)
 		return (-1);
 	len = 0;
@@ -46,7 +47,10 @@ int	ft_printf(const char *format, ...)
 	{
 		if (*format == '%')
 		{
-			len += ft_symbol(args, *(format + 1));
+			res = ft_symbol(args, *(format + 1));
+			if (res == -1)
+				return (-1);
+			len += res;
 			format++;
 		}
 		else
