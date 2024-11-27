@@ -6,7 +6,7 @@
 /*   By: husarpka <husarpka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 13:06:57 by husarpka          #+#    #+#             */
-/*   Updated: 2024/11/26 18:22:54 by husarpka         ###   ########.fr       */
+/*   Updated: 2024/11/27 12:21:45 by husarpka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,10 @@ int	ft_putpoint(void *n)
 {
 	unsigned long	nbr;
 	int				len;
+	int				res;
 
+	res = 0;
 	nbr = (unsigned long)n;
-	len = 0;
 	if (nbr == 0)
 	{
 		if (write(1, "(nil)", 5) == -1)
@@ -55,6 +56,9 @@ int	ft_putpoint(void *n)
 	if (write(1, "0x", 2) == -1)
 		return (-1);
 	len = 2;
-	len += ft_hexpoint(nbr, 'x');
+	res = ft_hexpoint(nbr, 'x');
+	if (res == -1)
+		return (-1);
+	len += res;
 	return (len);
 }

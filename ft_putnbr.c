@@ -6,7 +6,7 @@
 /*   By: husarpka <husarpka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 17:20:15 by husarpka          #+#    #+#             */
-/*   Updated: 2024/11/26 17:37:43 by husarpka         ###   ########.fr       */
+/*   Updated: 2024/11/27 12:35:24 by husarpka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,27 @@
 int	ft_putnbr(int nbr)
 {
 	int		len;
+	int		res;
+	long	n;
 
+	n = (long)nbr;
 	len = 0;
-	if (nbr == -2147483648)
-	{
-		if (ft_putstr("-2147483648") == -1)
-			return (-1);
-		return (11);
-	}
-	if (nbr < 0)
+	res = 0;
+	if (n < 0)
 	{
 		if (ft_putchar('-') == -1)
 			return (-1);
-		nbr = -nbr;
+		n = -n;
 		len++;
 	}
-	if (nbr > 9)
+	if (n > 9)
 	{
-		len += ft_putnbr(nbr / 10);
+		res = ft_putnbr(n / 10);
+		if (res == -1)
+			return (-1);
+		len += res;
 	}
-	if (ft_putchar((nbr % 10) + 48) == -1)
+	if (ft_putchar((n % 10) + 48) == -1)
 		return (-1);
 	len++;
 	return (len);
