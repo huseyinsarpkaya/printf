@@ -6,7 +6,7 @@
 /*   By: husarpka <husarpka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 10:49:19 by husarpka          #+#    #+#             */
-/*   Updated: 2024/11/27 11:43:04 by husarpka         ###   ########.fr       */
+/*   Updated: 2024/11/28 11:44:53 by husarpka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,6 @@ int	ft_printf(const char *format, ...)
 	len = 0;
 	va_start(args, format);
 	len = ft_format(args, format);
-	if (len == -1)
-	{
-		va_end(args);
-		return (-1);
-	}
 	va_end (args);
 	return (len);
 }
